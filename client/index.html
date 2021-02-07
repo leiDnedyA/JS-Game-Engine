@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aydab Game Engine</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>What up pimps!</h1>
+    <p>Set your nickname and click submit to start game, use arrow keys to move</p>
+    <canvas id="gameCanvas"></canvas>
+    <textarea rows="1" placeholder="Nickname" id="userName"></textarea><br>
+    <button onclick="onClickPlayerName()">Set Name</button>
+    <div id="chatWindow"></div>
+    <textarea rows="1" placeholder="Send Chat" id="chatMsg"></textarea><br>
+    <button onclick="sendChat()">Send Chat</button>
+    <script src="js/aydabsEngine.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/sock.js"></script>
+    <script src="js/chat.js"></script>
+    <script>
+      
+      var objsToAdd = [/*new GameObject("Test","#00FF00", [100, 10], [40, 40], true)*/];
+
+      function onClickPlayerName(){
+        var name = document.getElementById("userName").value;
+        setPlayerName(name);
+        if (!Game.isStarted){
+          createPlayer(100, 10, name);
+          Game.start();
+          for (let i = 0; i < objsToAdd.length; i++){
+            Game.gameObjects.push(objsToAdd[i]);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

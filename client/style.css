@@ -1,0 +1,14 @@
+body {
+  background-color: white;
+  color: black;
+  font-family: Verdana;
+}
+#gameCanvas {
+  border: 1px solid black;
+  }
+ #chatWindow{
+ 	border: 1px solid black;
+ 	height:120px;
+		/* background-color:#CCC; */		
+        overflow-y:auto;
+ }
